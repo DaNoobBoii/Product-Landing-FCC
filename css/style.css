@@ -1,0 +1,432 @@
+:root {
+  --montserrat: 'Montserrat', sans-serif;
+  --roboto: 'Roboto', sans-serif;
+  --kameron: 'Kameron', sans-serif;
+  --snow: #FCF7F8;
+  --laserLemon: #FAFF70;
+  --oldMauve: #6D213C;
+  --blackCoral: #5B616A;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  /* border: 1px solid green; */
+}
+
+body {
+  background: var(--snow);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Utilities */
+h1,
+h2,
+h3 {
+  font-family: var(--montserrat);
+}
+
+p {
+  font-family: var(--roboto);
+}
+
+a {
+  font-family: var(--roboto);
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+.btn {
+  color: #232323;
+  background: var(--laserLemon);
+  padding: 10px;
+  transition: .4s;
+  border-radius: 5px;
+  text-shadow: none;
+}
+
+.btn:hover {
+  background: var(--oldMauve);
+  color: var(--snow);
+}
+
+.section {
+  padding: 10em 4em;
+}
+
+.title {
+  text-align: center;
+}
+
+.price {
+  font-size: 64pt;
+  padding: 20px 0;
+  font-family: var(--kameron) !important;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: column;
+  height: 40%;
+  overflow: hidden;
+}
+
+.second-price {
+  font-size: 30pt;
+}
+
+/* Utilities */
+
+/* Navbar */
+.navbar {
+  height: 10vh;
+  width: 100%;
+  background: var(--blackCoral);
+  display: flex;
+  position: fixed;
+  align-items: center;
+  justify-content: space-around;
+  box-shadow: 0 0 10px purple;
+  z-index: 99;
+}
+
+.navbar a,
+.navbar p,
+.navbar h1 {
+  color: var(--snow);
+  padding: 10px;
+  font-weight: normal;
+  letter-spacing: .5px;
+}
+
+.navbar a {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: .4s;
+}
+
+.navbar a:hover {
+  color: var(--blackCoral);
+  background: var(--laserLemon);
+}
+
+.navbar li {
+  list-style: none;
+  height: 10vh;
+  width: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.navbar .nav-links {
+  display: flex;
+  width: 40%;
+  justify-content: space-around;
+}
+
+.navbar .burger {
+  width: 50px;
+  display: none;
+  cursor: pointer;
+  transform: scale(0.7);
+}
+
+.navbar .burger .line {
+  background: var(--snow);
+  border-radius: 10px;
+  height: 3px;
+  margin: 7px 0;
+  transition: .4s cubic-bezier(0.68, -0.6, 0.32, 1.6);
+}
+
+.navbar .burger .line1 {
+  width: 50%;
+}
+
+.navbar .burger .line2 {
+  width: 100%;
+}
+
+.navbar .burger .line3 {
+  width: 75%;
+}
+
+@media screen and (max-width: 768px) {
+  .navbar .burger {
+    display: block;
+  }
+
+  .navbar .nav-links {
+    top: 8vh;
+    bottom: 0;
+    position: absolute;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    height: 92vh;
+    width: 100%;
+    background: var(--blackCoral);
+    transform: translateX(100%);
+    transition: .4s;
+    right: 0;
+  }
+
+  .navbar .nav-links.active {
+    transform: translateX(0);
+  }
+
+  .burger.active .line1 {
+    transform-origin: bottom;
+    transform: rotatez(45deg) translate(2px, -2px)
+  }
+
+  .burger.active .line2 {
+
+    transform-origin: top;
+    transform: rotatez(-45deg)
+  }
+
+  .burger.active .line3 {
+
+    transform-origin: bottom;
+    width: 50%;
+    transform: translate(23px, -1px) rotatez(45deg);
+
+  }
+}
+
+/* Navbar */
+
+/* Header */
+.header {
+  height: 100vh;
+  background: linear-gradient(to bottom, var(--oldMauve), var(--blackCoral));
+  position: relative;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header .text {
+  z-index: 3;
+  color: var(--snow);
+  text-align: center;
+  text-shadow: 2px 2px 1px black;
+}
+
+.header .text h1 {
+  margin: 20px 0;
+}
+
+.header::before {
+  content: '';
+  width: 100%;
+  height: 100%;
+  background: url(../img/MyLaptop.jpeg);
+  background-size: cover;
+  opacity: .4;
+  position: absolute;
+  display: block;
+  z-index: -1;
+}
+
+/* Header */
+
+/* About */
+.about .text {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 20px 0;
+}
+
+.about .text .text-section {
+  margin: 0 15px;
+  text-align: center;
+  width: 50%;
+}
+
+/* About */
+
+/* Pricing */
+.pricing {
+  background: var(--blackCoral);
+  color: var(--snow);
+}
+
+.pricing .cards {
+  padding: 8em 0 0 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.pricing .cards li {
+  background: var(--laserLemon);
+  width: 300px;
+  height: 450px;
+}
+
+.pricing .cards li .card-title {
+  height: 25%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--oldMauve);
+  box-shadow: 0 3px 2px black;
+}
+
+.pricing .cards li .card-desc {
+  color: var(--blackCoral);
+  padding: 20px;
+  text-align: center;
+}
+
+.pricing .cards li hr {
+  border-top: 1px solid red;
+  width: 90%;
+  text-align: center;
+  margin: auto;
+}
+
+.pricing .cards li .price {
+  color: var(--blackCoral);
+}
+
+/* Pricing */
+
+/* Contact */
+.contact form {
+  background: var(--blackCoral);
+  color: var(--snow);
+  width: 75%;
+  padding: 10px 25px;
+  margin: 8em auto;
+}
+
+.contact form input,
+.contact form textarea {
+  font-family: var(--roboto);
+  text-transform: uppercase;
+  letter-spacing: .8px;
+  font-size: 12pt;
+  width: 100%;
+  height: 50px;
+  outline: none;
+  border: none;
+  margin: 5px 0;
+  border-bottom: 3px solid var(--snow);
+  background: none;
+}
+
+.contact form input::placeholder,
+.contact form textarea::placeholder {
+  color: var(--snow);
+}
+
+.contact form input[type=text],
+.contact form input[type=email],
+.contact form textarea[type=text] {
+  color: var(--snow);
+}
+
+.contact form .content {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.contact form .form-title {
+  width: 30%;
+}
+
+.contact form .form-title h3 {
+  margin: 20px 0 10px 0;
+}
+
+.contact form .form-title hr {
+  width: 30%;
+}
+
+.contact form .form {
+  width: 70%;
+}
+
+.contact form button {
+  width: 100%;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  height: 50px;
+  letter-spacing: 1px;
+}
+
+/* Contact */
+
+/* Copyright */
+.copyright {
+  text-align: center;
+  padding: 10px;
+  font-family: var(--montserrat);
+  text-transform: uppercase;
+}
+
+/* Copyright */
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+
+  /* about */
+  .about .text {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .about .text .text-section {
+    margin: 10px 15px;
+    text-align: center;
+    width: 90%;
+  }
+
+  /* about */
+  /* pricing */
+  .pricing .cards {
+    padding: 8em 0 0 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .pricing .cards li {
+    margin: 10px 0;
+  }
+
+  /* pricing */
+  /* contact */
+  .contact form .content {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .contact form .form-title {
+    width: 90%;
+  }
+
+  .contact form .form {
+    width: 90%;
+  }
+
+  /* contact */
+}
+
+/* Responsive */
